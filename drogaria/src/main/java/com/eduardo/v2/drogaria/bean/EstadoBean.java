@@ -1,11 +1,11 @@
 package com.eduardo.v2.drogaria.bean;
 
 import com.eduardo.v2.drogaria.jpa.BuscaEstado;
+import jakarta.annotation.ManagedBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 @Component
-@Scope("request")
 public class EstadoBean {
     private final BuscaEstado buscaEstado;
 
@@ -15,6 +15,7 @@ public class EstadoBean {
     }
 
     public String getNomeEstado() {
+        System.out.println("entrou");
         return buscaEstado.buscar().getNome();
     }
 }
