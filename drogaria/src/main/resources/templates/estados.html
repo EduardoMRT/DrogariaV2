@@ -10,10 +10,28 @@
 </head>
 <body>
 <h1 th:text = "'Estado' + ${estado.getNome()}"></h1>
-<form method="POST" action="teste1234" id="formEstados">
+<form method="POST" action="/adicionaEstado" id="formEstados">
     <input type="text" name="nome" placeholder="Nome do Estado" required="true" maxlength="35">
     <input type="text" name="sigla" placeholder="Sigla do Estado" required="true" maxlength="2">
     <input type="submit" id="btnEnviar" value="Criar Estado">
 </form>
+
+<h2>Listar Estados</h2>
+<table>
+    <thead>
+        <tr>
+            <td>Código</td>
+            <td>Estado</td>
+            <td>Sigla</td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each="estado1 : ${estadosList}">
+        <td th:text="${estado1.getCodigo()}"></td>
+        <td th:text="${estado1.getNome()}"></td>
+        <td th:text="${estado1.getSigla()}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
