@@ -1,0 +1,29 @@
+body{
+    background-color: white;
+    color: black;
+}
+#formEstados{
+    display: flex;
+    border: 2px solid red;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    margin: auto 30%;
+    padding: 2em;
+    border-radius: 1em;
+}
+
+#formEstados input{
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    margin-top: 2px;
+}
+
+#formEstados #btnEnviar{
+    border: 1px solid white;
+    background-color: red;
+    color: white;
+    margin: 6% 35% 0 35%;
+    padding: 10px;
+}

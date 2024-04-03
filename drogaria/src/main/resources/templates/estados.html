@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adicionar Estados</title>
+    <link th:href="@{/css/formularioEstado.css}" rel="stylesheet">
+</head>
+<body>
+<h1 th:text = "'Estado' + ${estado.getNome()}"></h1>
+<form method="POST" action="teste1234" id="formEstados">
+    <input type="text" name="nome" placeholder="Nome do Estado" required="true" maxlength="35">
+    <input type="text" name="sigla" placeholder="Sigla do Estado" required="true" maxlength="2">
+    <input type="submit" id="btnEnviar" value="Criar Estado">
+</form>
+</body>
+</html>

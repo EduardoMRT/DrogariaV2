@@ -11,6 +11,6 @@ public class DrogariaApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(DrogariaApplication.class).run(args);
 		BuscaEstado estado = applicationContext.getBean(BuscaEstado.class);
-		estado.buscar();
+		estado.buscar(1L);
 	}
 }

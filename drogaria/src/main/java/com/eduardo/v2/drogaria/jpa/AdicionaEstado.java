@@ -1,30 +1,32 @@
 package com.eduardo.v2.drogaria.jpa;
 
 import com.eduardo.v2.drogaria.domain.Estado;
-import org.springframework.context.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BuscaEstado {
+public class AdicionaEstado {
     private final ApplicationContext applicationContext;
 
     @Autowired
-    public BuscaEstado(ApplicationContext applicationContext) {
+    public AdicionaEstado(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 
-    public Estado buscar(Long cod) {
+    public Estado adicionar(String nome, String sigla){
         try {
+            Estado estado = new Estado();
+            estado.setNome(nome);
+            estado.setSigla(sigla);
+
             CadastraEstado cadastraEstadoestado = applicationContext.getBean(CadastraEstado.class);
-            Estado estado = cadastraEstadoestado.buscar(cod);
-            System.out.println(estado.getNome());
+            cadastraEstadoestado.adicionar(estado);
             return estado;
-        } catch (Exception e) {
-            System.out.println("Estado retornou nulo");
+        }catch (RuntimeException e){
+            System.out.println("Ocorreu um erro ao tentar adicionar o Estado");
             e.printStackTrace();
         }
         return null;
     }
 }
-
