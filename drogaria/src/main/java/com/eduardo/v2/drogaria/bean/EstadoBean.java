@@ -1,31 +1,32 @@
 package com.eduardo.v2.drogaria.bean;
 
-import com.eduardo.v2.drogaria.domain.Estado;
-import com.eduardo.v2.drogaria.jpa.AdicionaEstado;
-import com.eduardo.v2.drogaria.jpa.BuscaEstado;
-import com.eduardo.v2.drogaria.jpa.ListaEstado;
-import jakarta.annotation.ManagedBean;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
+import com.eduardo.v2.drogaria.domain.Estado;
+import com.eduardo.v2.drogaria.jpa.AdicionaEstado;
+import com.eduardo.v2.drogaria.jpa.BuscaEstado;
+import com.eduardo.v2.drogaria.jpa.ExcluiEstado;
+import com.eduardo.v2.drogaria.jpa.ListaEstado;
 
 @Controller
 public class EstadoBean {
     private final BuscaEstado buscaEstado;
     private  final AdicionaEstado adicionaEstado;
     private  final ListaEstado listaEstado;
+    private  final ExcluiEstado excluiEstado;
 
     @Autowired
-    public EstadoBean(BuscaEstado buscaEstado, AdicionaEstado adicionaEstado, ListaEstado listaEstado) {
+    public EstadoBean(BuscaEstado buscaEstado, AdicionaEstado adicionaEstado, ListaEstado listaEstado, ExcluiEstado excluiEstado) {
         this.buscaEstado = buscaEstado;
         this.adicionaEstado = adicionaEstado;
         this.listaEstado = listaEstado;
+        this.excluiEstado = excluiEstado;
     }
 
     @GetMapping("/estadosADM")
@@ -47,6 +48,14 @@ public class EstadoBean {
         Estado estado = adicionaEstado.adicionar(nome, sigla);
         model.addAttribute("estado", estado);
         getEstado(model);
+        return "estados";
+    }
+
+    @PostMapping("/estadosADM/deletar")
+    public String removerEstado(Model model, String codigo){
+        Long cod = Long.parseLong(codigo);
+        Estado estado = buscaEstado.buscar(cod);
+        excluiEstado.remover(estado);
         return "estados";
     }
 }
