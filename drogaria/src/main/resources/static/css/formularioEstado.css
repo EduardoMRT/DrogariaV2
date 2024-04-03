@@ -27,3 +27,36 @@ body{
     margin: 6% 35% 0 35%;
     padding: 10px;
 }
+#listaEstados{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    width: 40%;
+    margin: 0 auto;
+}
+
+#listaEstados td{
+    padding: 5px;
+    width: 1%;
+}
+
+#listaEstados thead{
+    color: red;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#listaEstados thead td{
+    padding: 5px;
+    width: 25%;
+}
+
+.textoMaior{
+    font-family: Arial, serif;
+    font-size: larger;
+    text-align: center;
+}

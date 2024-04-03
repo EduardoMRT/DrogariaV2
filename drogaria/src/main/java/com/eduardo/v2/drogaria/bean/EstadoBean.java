@@ -42,10 +42,11 @@ public class EstadoBean {
         return "estados"; //nesse caso seria o mesmo que estado.html por estar na pasta templates
     }
 
-    @PostMapping ("/adicionaEstado")
+    @PostMapping ("/estadosADM")
     public String adcEstado(Model model, String nome, String sigla){
         Estado estado = adicionaEstado.adicionar(nome, sigla);
         model.addAttribute("estado", estado);
+        getEstado(model);
         return "estados";
     }
 }
