@@ -1,4 +1,4 @@
-package com.eduardo.v2.drogaria.jpa;
+package com.eduardo.v2.drogaria.jpa.Estado;
 
 import com.eduardo.v2.drogaria.domain.Estado;
 import jakarta.persistence.EntityManager;
@@ -21,6 +21,7 @@ public class CadastraEstado {
     public Estado buscar(Long codigo){
         return manager.find(Estado.class, codigo);
     }
+
 
     @Transactional
     public Estado adicionar(Estado estado){

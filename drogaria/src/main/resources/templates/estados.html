@@ -7,11 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title class="textoMaior">Adicionar Estados</title>
     <link th:href="@{/css/formularioEstado.css}" rel="stylesheet">
-
+    <!--<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">-->
+<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">-->
 </head>
 <body>
+<!--<script th:src="@{/js/bootstrap.min.js}"></script>-->
+<!--<div class="navbar">
+    <div th:include="navbar :: navbar">
+    </div>
+</div>-->
+
+
+
 <h1 class="textoMaior">Cadastrar Estados</h1>
-<form method="POST" action="/estadosADM" id="formEstados">
+<form method="POST" action="/drogariaV2/estadosADM" id="formEstados">
     <input type="text" name="nome" placeholder="Nome do Estado" required="true" maxlength="35">
     <input type="text" name="sigla" placeholder="Sigla do Estado" required="true" maxlength="2">
     <input type="hidden" name="action" value="inserir">
@@ -33,10 +42,11 @@
     </thead>
     <tbody>
     <tr th:each="estado1 : ${estadosList}">
+        <h:outputText value="${estado1.getNome}"></h:outputText>
         <td th:text="${estado1.getCodigo()}"></td>
         <td th:text="${estado1.getNome()}"></td>
         <td th:text="${estado1.getSigla()}"></td>
-        <td><form method="POST" action="/estadosADM" th:object="${estado1}">
+        <td><form method="POST" action="/drogariaV2/estadosADM" th:object="${estado1}">
             <input type="hidden" name="codigo" th:value="*{codigo}">
             <input type="hidden" name="action" value="deletar">
             <button type="submit">
@@ -47,7 +57,7 @@
             </button>
             </form>
         </td>
-        </form>
+
     </tr>
     </tbody>
 </table>

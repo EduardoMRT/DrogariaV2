@@ -1,4 +1,4 @@
-package com.eduardo.v2.drogaria.jpa;
+package com.eduardo.v2.drogaria.jpa.Estado;
 
 import com.eduardo.v2.drogaria.domain.Estado;
 import org.springframework.beans.factory.annotation.Autowired;

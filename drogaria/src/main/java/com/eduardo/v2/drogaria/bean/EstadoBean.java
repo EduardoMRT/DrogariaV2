@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.eduardo.v2.drogaria.domain.Estado;
-import com.eduardo.v2.drogaria.jpa.AdicionaEstado;
-import com.eduardo.v2.drogaria.jpa.BuscaEstado;
-import com.eduardo.v2.drogaria.jpa.ExcluiEstado;
-import com.eduardo.v2.drogaria.jpa.ListaEstado;
+import com.eduardo.v2.drogaria.jpa.Estado.AdicionaEstado;
+import com.eduardo.v2.drogaria.jpa.Estado.BuscaEstado;
+import com.eduardo.v2.drogaria.jpa.Estado.ExcluiEstado;
+import com.eduardo.v2.drogaria.jpa.Estado.ListaEstado;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -30,7 +30,7 @@ public class EstadoBean {
         this.excluiEstado = excluiEstado;
     }
 
-    @GetMapping("/estadosADM")
+    @GetMapping("/drogariaV2/estadosADM")
     public String getEstado(Model model) {
         Estado estado = buscaEstado.buscar(1L);
         model.addAttribute("estado", estado);
@@ -44,7 +44,7 @@ public class EstadoBean {
         return "estados"; //nesse caso seria o mesmo que estado.html por estar na pasta templates
     }
 
-    @PostMapping ( value = "/estadosADM", params = "action=inserir")
+    @PostMapping ( value = "/drogariaV2/estadosADM", params = "action=inserir")
     public String adcEstado(Model model, @RequestParam String nome, @RequestParam String sigla){
         Estado estado = adicionaEstado.adicionar(nome, sigla);
         model.addAttribute("estado", estado);
@@ -52,7 +52,7 @@ public class EstadoBean {
         return "estados";
     }
 
-    @PostMapping(value = "/estadosADM", params = "action=deletar")
+    @PostMapping(value = "/drogariaV2/estadosADM", params = "action=deletar")
     public String removerEstado(Model model, @RequestParam String codigo){
         Long cod = Long.parseLong(codigo);
         Estado estado = buscaEstado.buscar(cod);
