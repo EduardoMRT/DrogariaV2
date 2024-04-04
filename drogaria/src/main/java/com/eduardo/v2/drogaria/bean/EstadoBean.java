@@ -13,6 +13,7 @@ import com.eduardo.v2.drogaria.jpa.AdicionaEstado;
 import com.eduardo.v2.drogaria.jpa.BuscaEstado;
 import com.eduardo.v2.drogaria.jpa.ExcluiEstado;
 import com.eduardo.v2.drogaria.jpa.ListaEstado;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class EstadoBean {
@@ -43,19 +44,20 @@ public class EstadoBean {
         return "estados"; //nesse caso seria o mesmo que estado.html por estar na pasta templates
     }
 
-    @PostMapping ("/estadosADM")
-    public String adcEstado(Model model, String nome, String sigla){
+    @PostMapping ( value = "/estadosADM", params = "action=inserir")
+    public String adcEstado(Model model, @RequestParam String nome, @RequestParam String sigla){
         Estado estado = adicionaEstado.adicionar(nome, sigla);
         model.addAttribute("estado", estado);
         getEstado(model);
         return "estados";
     }
 
-    @PostMapping("/estadosADM/deletar")
-    public String removerEstado(Model model, String codigo){
+    @PostMapping(value = "/estadosADM", params = "action=deletar")
+    public String removerEstado(Model model, @RequestParam String codigo){
         Long cod = Long.parseLong(codigo);
         Estado estado = buscaEstado.buscar(cod);
         excluiEstado.remover(estado);
+        getEstado(model);
         return "estados";
     }
 }

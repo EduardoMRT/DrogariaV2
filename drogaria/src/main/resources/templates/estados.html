@@ -14,6 +14,7 @@
 <form method="POST" action="/estadosADM" id="formEstados">
     <input type="text" name="nome" placeholder="Nome do Estado" required="true" maxlength="35">
     <input type="text" name="sigla" placeholder="Sigla do Estado" required="true" maxlength="2">
+    <input type="hidden" name="action" value="inserir">
     <input type="submit" id="btnEnviar" value="Criar Estado">
 </form>
 
@@ -35,8 +36,9 @@
         <td th:text="${estado1.getCodigo()}"></td>
         <td th:text="${estado1.getNome()}"></td>
         <td th:text="${estado1.getSigla()}"></td>
-        <td><form method="POST" action="/estadosADM/deletar" th:object="${estado1}">
+        <td><form method="POST" action="/estadosADM" th:object="${estado1}">
             <input type="hidden" name="codigo" th:value="*{codigo}">
+            <input type="hidden" name="action" value="deletar">
             <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
