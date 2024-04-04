@@ -27,18 +27,4 @@ public class BuscaUsuario {
             return null;
         }
     }
-
-    public Usuario buscarUsuarioPorCpf(String cpf){
-        try{
-            CadastraUsuario cadastraUsuario = applicationContext.getBean(CadastraUsuario.class);
-            Pessoa pessoa = new Pessoa();
-            Usuario usuario = cadastraUsuario.buscar(pessoa.getCpf());
-            System.out.println(usuario.getPessoa().getNome());
-            return usuario;
-        }catch (RuntimeException e){
-            System.out.println("Ocorreu um erro ao tentar buscar o usuário!");
-            e.printStackTrace();
-            return null;
-        }
-    }
 }

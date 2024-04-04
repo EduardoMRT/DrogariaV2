@@ -2,6 +2,7 @@ package com.eduardo.v2.drogaria.bean;
 
 import java.util.List;
 
+import com.eduardo.v2.drogaria.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,7 @@ public class EstadoBean {
 
     @GetMapping("/drogariaV2/estadosADM")
     public String getEstado(Model model) {
+
         Estado estado = buscaEstado.buscar(1L);
         model.addAttribute("estado", estado);
 

@@ -21,13 +21,9 @@ public class CadastraUsuario {
     }
 
     public Usuario buscar(Long codigo){
-        System.out.println("SQL:"+manager);
         return manager.find(Usuario.class, codigo);
     }
 
-    public Usuario buscar(String cpf){
-        return manager.find(Usuario.class, cpf);
-    }
 
     @Transactional
     public Usuario adicionar(Usuario usuario){
