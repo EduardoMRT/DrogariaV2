@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link th:href="@{/css/formularioLogin.css}" rel="stylesheet">
+    <h1>Adicionar Produtos</h1>
+</head>
+<body>
+    <form method="POST" action="/drogariaV2/painelADM/produtos/adcProdutos">
+        <input type="text" name="nome" placeholder="Nome do Produto" required="required">
+        <input type="number" name="quantidade" min="1" max="5000" placeholder="Quantidade" required="required">
+        <input type="number" name="preco" min="1" max="5000" required="required" placeholder="Preço">
+        <textarea placeholder="Descrição do Produto" name="descricao"></textarea>
+        <input type="submit" value="Cadastrar Produto">
+    </form>
+</body>
+</html>

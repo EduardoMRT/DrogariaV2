@@ -13,3 +13,8 @@ form{
 form input{
     padding: 5px;
 }
+
+form textarea{
+    height: 10vh;
+    resize: none;
+}

@@ -11,20 +11,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.expression.Messages;
 
 import java.util.Objects;
 
 @Controller
 public class UsuarioBean {
     public final BuscaUsuario buscaUsuario;
-    private final ListaUsuario listaUsuario;
     private final BuscaPessoa buscaPessoa;
     static Usuario usuarioLogado = null;
 
     @Autowired
-    public UsuarioBean(BuscaUsuario buscaUsuario, ListaUsuario listaUsuario, BuscaPessoa buscaPessoa) {
+    public UsuarioBean(BuscaUsuario buscaUsuario, BuscaPessoa buscaPessoa) {
         this.buscaUsuario = buscaUsuario;
-        this.listaUsuario = listaUsuario;
         this.buscaPessoa = buscaPessoa;
     }
 
@@ -42,6 +41,13 @@ public class UsuarioBean {
 
         if(Objects.equals(usuario.getSenha(), senha)){
             usuarioLogado = usuario;
+
+            if(Objects.equals(usuario.getTipo(), 'A')){
+                return "/painelADM/index";
+            }
+            /*else if(Objects.equals(usuario.getTipoFormatado(), "C")){
+                return "/index";
+            }*/
             return "estados";
         }else{
             System.out.println("Senha incorreta!");
