@@ -45,9 +45,9 @@ public class UsuarioBean {
             if(Objects.equals(usuario.getTipo(), 'A')){
                 return "/painelADM/index";
             }
-            /*else if(Objects.equals(usuario.getTipoFormatado(), "C")){
+            else if(Objects.equals(usuario.getTipo(), 'C')){
                 return "/index";
-            }*/
+            }
             return "estados";
         }else{
             System.out.println("Senha incorreta!");
