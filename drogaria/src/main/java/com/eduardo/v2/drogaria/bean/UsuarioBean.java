@@ -43,10 +43,10 @@ public class UsuarioBean {
             usuarioLogado = usuario;
 
             if(Objects.equals(usuario.getTipo(), 'A')){
-                return "/painelADM/index";
+                return "redirect:/drogariaV2/painelADM/index";
             }
             else if(Objects.equals(usuario.getTipo(), 'C')){
-                return "/index";
+                return "redirect:/drogariaV2/index";
             }
             return "estados";
         }else{

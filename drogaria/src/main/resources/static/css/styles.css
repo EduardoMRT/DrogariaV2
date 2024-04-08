@@ -7668,6 +7668,18 @@ textarea.form-control-lg {
 
 .mb-5 {
   margin-bottom: 3rem !important;
+  width: 100%;
+}
+
+.produtos{
+
+}
+
+.produtosMaior{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .mb-auto {
@@ -10823,4 +10835,31 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.submeteProduto{
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+.submeteProduto:hover{
+  color: white;
+}
+
+/*CARRINHO*/
+.icon-hover-primary:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+}
+
+.icon-hover-primary:hover i {
+  color: #3b71ca !important;
+}
+.icon-hover-danger:hover {
+  border-color: #dc4c64 !important;
+  background-color: white !important;
+}
+
+.icon-hover-danger:hover i {
+  color: #dc4c64 !important;
 }
