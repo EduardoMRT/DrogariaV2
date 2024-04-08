@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class CarrinhoController {
-    public List<Produto> produtoList;
+    Double valorTotal = (double) 0.00;
+    static List<Produto> produtoList;
     private final BuscaProduto buscaProduto;
 
     @Autowired
@@ -24,6 +26,16 @@ public class CarrinhoController {
 
     @GetMapping("/drogariaV2/carrinho")
     public String buscaCarrinho(Model model){
+        model.addAttribute("produtos", produtoList);
+        for(Produto produto : produtoList){
+            valorTotal += (produto.getPreco()* produto.getQuantidade());
+        }
+        DecimalFormat df = new DecimalFormat("#.##");
+        String valorTotalString = df.format(valorTotal);
+        valorTotalString = valorTotalString.replace(",",".");
+        System.out.println("VALOR:"+valorTotalString);
+        valorTotal = Double.parseDouble(valorTotalString);
+        model.addAttribute("valorTotal", valorTotal);
         return "carrinho";
     }
 
