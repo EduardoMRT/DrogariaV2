@@ -1,6 +1,7 @@
 package com.eduardo.v2.drogaria.domain;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import lombok.Setter;
 @Entity(name = "produto")
 @Getter
 @Setter
+@EqualsAndHashCode(of = "cod_produto")
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

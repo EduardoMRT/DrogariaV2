@@ -10864,4 +10864,13 @@ textarea.form-control-lg {
   color: #dc4c64 !important;
 }
 
+.float-md-end {
+  display: flex;
+  flex-direction: row;
+}
 
+.px-2 {
+  padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
+  margin-bottom: 100%;
+}
