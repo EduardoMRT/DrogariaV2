@@ -35,11 +35,11 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex">
+            <form class="d-flex" action="/drogariaV2/carrinho">
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
                     Carrinho
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                    <span class="badge bg-dark text-white ms-1 rounded-pill" th:text="${session.qtddeProdutos}"> </span>
                 </button>
             </form>
         </div>
@@ -60,7 +60,7 @@
                             <div class="col-lg-5">
                                 <div class="me-lg-5">
                                     <div class="d-flex">
-                                        <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" class="border rounded me-3" style="width: 96px; height: 96px;" />
+                                        <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/11.webp" class="border rounded me-3" style="width: 96px; height: 96px;min-width: 96px;" />
                                         <div class="">
                                             <a href="#" class="nav-link" th:text="${produto.nome}"></a>
                                             <p class="text-muted" th:text="${produto.descricao}">Yellow, Jeans</p>
@@ -71,12 +71,12 @@
                             <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
                                 <div class="">
                                     <select style="width: 100px;" class="form-select me-4">
-                                        <option th:text="${produto.quantidade}"></option>
+                                        <option th:text="${produto.qtdUsuario}"></option>
 
                                     </select>
                                 </div>
                                 <div class="">
-                                    R$ <text class="h6" th:text="${produto.preco*produto.quantidade}" > </text> <br />
+                                    R$ <text class="h6" th:text="${produto.preco*produto.qtdUsuario}" > </text> <br />
                                     R$ <small class="text-muted text-nowrap" th:text="${produto.preco} + '/ por item'">  </small>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
 <section>
     <div class="container my-5">
         <header class="mb-4">
-            <h3>Recommended items</h3>
+            <h3>Itens Recomendados</h3>
         </header>
 
         <div class="row">

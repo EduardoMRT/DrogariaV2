@@ -23,7 +23,6 @@ public class ProdutoIndController {
     @GetMapping("/drogariaV2/produto")
     public String produto(Model model){
         Produto produto = buscaProduto.buscarProdutoPorCodigo(codProduto);
-        System.out.println(produto.getNome());
         model.addAttribute("produtoInd", produto);
         model.addAttribute("codProd", codProduto);
         return "produto";

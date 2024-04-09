@@ -33,11 +33,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <form class="d-flex" action="/drogariaV2/carrinho">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Carrinho
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" th:if="${session.qtddeProdutos != null}" th:text="${session.qtddeProdutos}"></span>
                         </button>
                     </form>
                 </div>

@@ -16,4 +16,8 @@ public class Produto {
     private Integer quantidade;
     private double preco;
     private String descricao;
+
+//    USADO APENAS PARA REALIZAR A MULT NO CARRINHO
+    private Integer qtdUsuario;
+    private Integer qtdProdCarrinho;
 }
