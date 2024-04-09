@@ -10,7 +10,7 @@
 </head>
 <body>
     <form method="POST" action="/drogariaV2/login">
-        <input type="text" name="cpf" placeholder="CPF" maxlength="14" data-mask="999.999.999-99" required="true">
+        <input type="text" name="cpf" placeholder="CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" oninvalid="this.setCustomValidity('Por favor, insira o CPF no formato 123.456.789-10')"  maxlength="14" id="cpf" required="true">
         <input type="password" name="senha" placeholder="Senha" required="true" minlength="8">
         <input type="hidden" name="action" value="entrar">
         <input type="submit" value="Entrar">

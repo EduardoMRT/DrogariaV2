@@ -98,7 +98,8 @@ public class CarrinhoController {
 
     @PostMapping("/drogariaV2/fazerPedido")
     public String fazerPedido(){
-        String cabecalhoMensagem = "Drogaria MultiFarma\n Pedido: ";
+        StringBuilder cabecalhoMensagem = new StringBuilder();
+                cabecalhoMensagem.append("Drogaria MultiFarma\n Pedido: ");
 
         String infoPessoa = "";
         StringBuilder mensagem = new StringBuilder();
@@ -109,6 +110,6 @@ public class CarrinhoController {
             }
         }
         String mensagemCodificada = URLEncoder.encode(mensagem.toString(), StandardCharsets.UTF_8);
-        return "redirect:https://wa.me/14998908197?text="+mensagemCodificada;
+        return "redirect:https://wa.me/{number}?text="+cabecalhoMensagem.append(mensagemCodificada);
     }
 }

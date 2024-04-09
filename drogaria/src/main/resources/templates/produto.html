@@ -58,7 +58,7 @@
                         <p class="lead" th:text="${produtoInd.descricao}"></p>
                         <div class="d-flex">
                             <input type="hidden" name="cod" th:value="${codProd}">
-                            <input class="form-control text-center me-3" name="quantidadeUsuario" id="inputQuantity" type="num" th:value="1" style="max-width: 3rem" />
+                            <input class="form-control text-center me-3" name="quantidadeUsuario" id="inputQuantity" min="1" th:max="${produtoInd.quantidade}" type="number" th:value="1"  style="max-width: 5rem; width: 5rem;" required="required"/>
                             <button class="btn btn-outline-dark flex-shrink-0" type="submit">
                                 <i class="bi-cart-fill me-1"></i>
                                 Adicionar ao Carrinho
